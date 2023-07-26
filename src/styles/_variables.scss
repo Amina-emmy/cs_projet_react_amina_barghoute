@@ -3,7 +3,7 @@
 
 $red: #e21919;
 $blue: #1431d44f;
-$orange: #db850d;
+$orange: #E4563E;
 
 $custom-colors: (
   "red": $red,
@@ -13,7 +13,7 @@ $custom-colors: (
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-$spacer: 20px;
+$spacer: 9px;
 
 $custom-spacers: (
   0: 0,

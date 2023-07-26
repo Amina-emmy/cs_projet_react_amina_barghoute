@@ -1,0 +1,10 @@
+@import "../styles/variables";
+
+nav{
+    font-family: "monstr thin";
+    font-weight: 600;
+    font-size: 14px;
+    .nav-link:hover, .nav-link:focus{
+        color: $orange;
+    }
+}

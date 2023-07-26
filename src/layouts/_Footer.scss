@@ -1,0 +1,66 @@
+@import "../styles/variables";
+
+footer{
+    width: 100%;
+    height: 35vh;
+    h5{
+        font-size: 15px;
+    }
+    p,li{
+        font-size: 12px;
+    }
+    .divmom{
+        width: 100%;
+        height: 80%;
+        .kid1{
+            width: 50%;
+            margin-left: 70px;
+        }
+        .divkid{
+            width: 33%;
+            margin-left: 170px;
+        }  
+    }
+}
+//^ tablet
+@media ( min-width:768px ) and (max-width:1023px)  {
+    footer{
+        width: 100%;
+        height: 53vh;
+        .divmom{
+            width: 100%;
+            height: 80%;
+            .kid1{
+                width: 50%;
+                margin-left: 70px;
+            }
+            .divkid{
+                width: 23%;
+                margin-left: 70px;
+            }  
+        }
+    }
+}
+//^ mobile
+@media ( min-width:375px ) and (max-width:425px){
+    footer{
+        width: 100%;
+        height: 85vh;
+        .divmom{
+            padding-top: 30px;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            height: 85%;  
+            .kid1{
+                width: 50%;
+                margin-left: 40px;
+            }
+            .divkid{
+                width: 23%;
+                margin-left: 40px;
+            } 
+        }
+    }
+}
+
