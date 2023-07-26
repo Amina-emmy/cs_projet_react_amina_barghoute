@@ -1,1 +1,20 @@
 @import "../../styles/variables";
+
+.divAbout{
+    width: 100%;
+    .divAboutChild{
+        width: 22%;
+        margin-left: 70px;
+        img{
+            width: 270px;
+            height: 450px;
+        }
+    }
+    .divAboutChild2{
+        width: 50%;
+        h3{
+            font-family: "monstr thin";
+            font-weight: 600;
+        }
+    }
+}

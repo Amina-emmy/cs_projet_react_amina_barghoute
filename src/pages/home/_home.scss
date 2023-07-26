@@ -1,1 +1,63 @@
-@import "../../styles/variables"
+@import "../../styles/variables";
+
+.caro{
+    position: relative;
+}
+.caroText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    h1{
+        font-family: "monstr extra bold";
+        font-size: 45px;
+        font-weight: bold;
+        padding-bottom: 4px;
+        border-bottom: 4px solid white;
+    }
+    p{
+        font-family: "monstr thin";
+        padding-bottom: 7px;
+    }
+}
+//^ tablet
+@media ( min-width:768px ) and (max-width:1023px)  {
+    .caroText{
+        h1{
+            font-family: "monstr extra bold";
+            font-size: 30px;
+            font-weight: bold;
+            padding-bottom: 4px;
+            border-bottom: 3px solid white;
+        }
+        p{
+            padding-bottom: 3px;
+        }
+        button{
+            font-size: 11px;
+        }
+    }
+}
+//^ mobile
+@media ( min-width:375px ) and (max-width:425px){
+    .caroText{
+        h1{
+            font-family: "monstr extra bold";
+            font-size: 18px;
+            font-weight: bold;
+            padding-bottom: 2px;
+            margin-bottom: 1px;
+            border-bottom: 2px solid white;
+        }
+        p{
+            padding-bottom: 0px;
+            font-size: 10px;
+            margin-bottom: 1px;
+        }
+        button{
+            font-size: 7px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    }
+}

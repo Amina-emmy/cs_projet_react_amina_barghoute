@@ -6,7 +6,6 @@ import { About } from "./pages/about/About";
 import { Product } from "./pages/Product/Product";
 import { Contact } from "./pages/Contact/Contact";
 import { Header } from "./layouts/Header";
-import { Footer } from "./layouts/Footer";
 import {Heart} from "./pages/Favorite/Heart";
 import { Panier } from "./pages/Panier/Panier";
 
@@ -24,7 +23,6 @@ export const App = () => {
         <Route path="/heart" element={<Heart/>} />
         <Route path="/panier" element={<Panier />} />
       </Routes>
-      <Footer />
     </>
   );
 };
