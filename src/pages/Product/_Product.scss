@@ -1,2 +1,58 @@
 @import "../../styles/variables";
 
+.li_category:active{
+    color: $orange;
+    font-weight: bold;
+}
+.divallProducts{
+    width: 80%;
+}
+.picProduct {
+    position: relative;
+    transition: all 0.5s;
+    h4{
+        font-family:"monstr thin";
+        font-weight: 600;
+        padding-top: 15px;
+        font-size: 19px;
+    }
+    p{
+        color: $orange;
+        font-family:"monstr thin";
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 17px;
+    }
+    .btnCart {
+        position: absolute;
+        top: 63%;
+        left: 11%;
+    }
+    .btnSale {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        padding: 0px;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+    .btnFav {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+    }
+}
+//* hide btns till hovering
+.picProduct button {
+    opacity: 0;
+}
+.picProduct:hover{
+    transform: scale(1.1);
+}
+.picProduct:hover button {
+    opacity: 1;
+    transition: 0.5s;
+}
+.picProduct:hover img{
+    filter: brightness(50%);
+}
