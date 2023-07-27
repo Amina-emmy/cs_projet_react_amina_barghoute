@@ -26,7 +26,7 @@ import k4 from "./assets/images/products/kids/kid4.jpg";
 // Accessories => products images
 
 export const App = () => {
-  //^ for shopping
+  //* for shopping
   const product =(src, name, price, wanted, category, tag) =>({
     src,
     name,
@@ -44,30 +44,30 @@ export const App = () => {
     product(m1, "chemise", 120, 1, "men", "new"),
     product(m2, "chemise noir", 50, 1, "men", "sale"),
     product(m3, "jacket brown", 200, 1, "men", "best seller"),
-    product(m4, "jacket cool", 70, 1, "men", "old"),
+    product(m4, "jacket cool", 70, 1, "men", "best seller"),
 
     product(k1,"skirt&coat pink", 120, 1, "kids", "new"),
     product(k2, "skirt&coat green", 50, 1, "kids", "sale"),
     product(k3, "outfit brown", 200, 1, "kids", "best seller"),
     product(k4, "outfit green", 70, 1, "kids", "old")
   ]);
-  
-  //* tables shopping
-  // const [panier,setPanier]=useState([]);
-  // const [fav,setFav]=useState([]);
+
+  const [panier,setPanier]=useState([]);
+
+  const [fav,setFav]=useState([]);
 
   return (
     <>
       <Header />
       <Routes>
         <Route path="*" element={<Error />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home  products={products} setProducts={setProducts} />} />
         <Route path="/product" element={<Product products={products} setProducts={setProducts}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/heart" element={<Heart />} />
-        <Route path="/panier" element={<Panier />} />
+        <Route path="/heart" element={<Heart fav={fav} setFav={setFav} />} />
+        <Route path="/panier" element={<Panier panier={panier} setPanier={setPanier} />} />
       </Routes>
     </>
   );

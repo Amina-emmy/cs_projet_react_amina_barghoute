@@ -6,11 +6,12 @@ import { useState } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export const Product = (props) => {
+    //* for showing products based on category
     const [all, setAll] = useState(false);
     const [women, setWomen] = useState(false);
     const [men, setMen] = useState(false);
     const [kids, setKids] = useState(false);
-
+    //* for filtering based on the user research
     const [search, setSearch] = useState("");
     const [filterElement, setFilterElement] = useState([]);
 

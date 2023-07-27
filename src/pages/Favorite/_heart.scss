@@ -1,1 +1,42 @@
 @import "../../styles/variables";
+
+
+.favTable{
+    table{
+        th{
+            font-size: 12px;
+        }
+        .trBorder{
+            border: 1px solid $gray;
+        }
+        .th_col1{
+            padding: 20px 30px 20px 30px;
+        }
+        .th_col2{
+            padding: 10px 150px 10px 15px;
+        }
+        .th_col3{
+            padding: 10px 20px 10px 20px;
+        }
+        .th_col4{
+            padding: 10px 70px 10px 80px;
+            button{
+                background-color: $gray;
+                border: none;
+                width: 30px;
+                padding: 2px 6px 2px 6px;
+            }
+            input{
+                width: 30px;
+                text-align: center;
+                border: 1px solid $gray;
+            }
+        }
+        .th_col5{
+            padding: 10px 10px 10px 60px;
+        }
+        .th_col6{
+            padding: 10px 10px 10px 10px;
+        }
+    }
+}
