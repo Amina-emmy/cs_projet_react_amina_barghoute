@@ -4,6 +4,9 @@
     color: $orange;
     font-weight: bold;
 }
+.divCategories{
+    width: 30%;
+}
 .divallProducts{
     width: 80%;
 }
@@ -55,4 +58,20 @@
 }
 .picProduct:hover img{
     filter: brightness(50%);
+}
+
+//^ tablet
+@media ( min-width:768px ) and (max-width:1023px)  {
+    .divCategories{
+        width: 38%;
+        padding: 20px 20px 20px 20px;
+    }
+    .divallProducts{
+        width: 65%;
+        padding: 13px 0px 13px 0px;
+    }
+}
+//^ mobile
+@media ( min-width:375px ) and (max-width:425px){
+
 }

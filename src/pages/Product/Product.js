@@ -34,8 +34,8 @@ export const Product = (props) => {
             <div className="bgpic">
                 <div className="bgtitre text-light"><h1>PRODUCT</h1></div>
             </div>
-            <div className="d-flex gap-6 justify-content-evenly m-7">
-                <div className="ms-8 pe-5 w-25">
+            <div className="d-flex gap-6 justify-content-evenly m-lg-7">
+                <div className="ms-lg-8 pe-lg-5 divCategories">
                     <div>
                         <h4>Categories</h4>
                         <ul className="navbar-nav">
