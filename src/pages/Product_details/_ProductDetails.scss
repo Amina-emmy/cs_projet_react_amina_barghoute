@@ -1,2 +1,29 @@
 @import "../../styles/variables";
 
+.divParentPD{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .divPD{
+        width: 80%;
+    }
+}
+.nbrProduct{
+    button{
+        background-color: $gray;
+        border: none;
+        width: 40px;
+        padding: 10px 10px 9px 10px;
+    }
+    button:hover{
+        background-color: $orange;
+    }
+    input{
+        width: 50px;
+        font-size: 18px;
+        height: 43px;
+        text-align: center;
+        border: 2px solid $gray;
+    }
+
+}

@@ -1,47 +1,86 @@
 @import "../../styles/variables";
 
 //* this two classes are aplied to all the titles (bg-image + bgtitle) of other components
-.bgpic{
-    position:relative;
+.bgpic {
+    position: relative;
     background-image: url(../../assets/images/scary-dark-wall-for-title.jpg);
     width: 100%;
     height: 22vh;
 }
-.bgtitre{
-    position:absolute;
+
+.bgtitre {
+    position: absolute;
     font-family: "monstr semi bold";
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 1;
 }
+
 //**************************************************************************************
-.divContact{
+.divContact {
     width: 100%;
-    .map{
+
+    .map {
         filter: brightness(45%);
     }
-    .map:hover{
+
+    .map:hover {
         filter: brightness(100%);
     }
-    .divContactForm{
+
+    .divContactForm {
         width: 30%;
-        h3{
+
+        h3 {
             font-family: "monstr thin";
             font-weight: 600;
             margin-bottom: 18px;
         }
-        input,textarea{
+
+        input,
+        textarea {
             margin-bottom: 10px;
             opacity: 70%;
             padding: 6px;
             border: 1px solid rgba(0, 0, 0, 0.315);
         }
-        ::placeholder{
+
+        ::placeholder {
             font-family: "monstr thin";
             font-weight: 600;
             font-size: 12px;
             padding-left: 10px;
+        }
+    }
+}
+
+//^ tablet
+@media (min-width:768px) and (max-width:1023px) {
+    .divContact {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        .divContactForm {
+            width: 60%;
+            text-align: center;
+        }
+    }
+}
+
+//^ mobile
+@media (min-width:375px) and (max-width:425px) {
+    .divContact {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        iframe{
+            width: 350px;
+            height: 300px;
+        }
+        .divContactForm {
+            width: 80%;
+            text-align: center;
         }
     }
 }

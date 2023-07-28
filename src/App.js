@@ -95,7 +95,7 @@ export const App = () => {
         <Route path="*" element={<Error />} />
         <Route path="/" element={<Home products={products} setProducts={setProducts} />} />
         <Route path="/product" element={<Product products={products} setProducts={setProducts} fav={fav} setFav={setFav} panier={panier} setPanier={setPanier} addToPanierOrFav={addToPanierOrFav} />} />
-        <Route path="/product/:id" element={<Product_details  products={products} />}/>
+        <Route path="/product/:id" element={<Product_details products={products} setProducts={setProducts} panier={panier} setPanier={setPanier} addToPanierOrFav={addToPanierOrFav} plusOne={plusOne} moinsOne={moinsOne}/>}/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
