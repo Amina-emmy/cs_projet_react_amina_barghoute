@@ -2,6 +2,13 @@ import "./_panier.scss"
 import { Footer } from "../../layouts/Footer";
 
 export const Panier = (props) => {
+    let total=0;
+    const suppFromPanier = (index) => {
+        let newPanier = [...props.panier];
+        newPanier.splice(index, 1);
+        props.setPanier(newPanier);
+    }
+
     return (<>
         <section>
             <div className="bgpic">
@@ -11,9 +18,9 @@ export const Panier = (props) => {
                 <table>
                     <thead>
                         {
-                            props.panier.length === 0 ?
+                            props.panier.length <= 1 ?
                                 <>
-                                <h5 className="opacity-50">Votre panier est encore vide</h5>
+                                    <h5 className="opacity-50">Votre panier est encore vide</h5>
                                 </>
                                 :
                                 <>
@@ -29,28 +36,34 @@ export const Panier = (props) => {
                     </thead>
                     <tbody>
                         {
-                            props.panier.map((element) => <>
-                                <tr className="trBorder">
-                                    <td className="th_col1"><img src={element.src} alt="" width="110px" /></td>
-                                    <td className="th_col2">{element.name}</td>
-                                    <td className="th_col3">{element.price} MAD</td>
-                                    <td className="th_col4">
-                                        <div>
-                                            <button>-</button>
-                                            <input type="text" value={element.wanted} readOnly />
-                                            <button>+</button>
-                                        </div>
-                                    </td>
-                                    <td className="th_col5">
-                                        {element.wanted * element.price} MAD
-                                    </td>
-                                </tr>
-                            </>)
+                            props.panier.map((element, index) =>
+                                index >= 1 ?
+                                    <>
+                                        <tr className="trBorder">
+                                            <td className="th_col1">
+                                                <img src={element.src} alt="" width="110px" />
+                                                <button className="btn border-0 fs-4 btnRm" onClick={() => { suppFromPanier(index) }}>X</button>
+                                            </td>
+                                            <td className="th_col2">{element.name}</td>
+                                            <td className="th_col3">{element.price} MAD</td>
+                                            <td className="th_col4">
+                                                <div>
+                                                    <button onClick={() => { props.moinsOne(props.panier, props.setPanier, index) }}>-</button>
+                                                    <input type="text" value={element.wanted} readOnly />
+                                                    <button onClick={() => { props.plusOne(props.panier, props.setPanier, index) }}>+</button>
+                                                    <p className="opacity-0">{total = total + (element.wanted * element.price)}</p>
+                                                </div>
+                                            </td>
+                                            <td className="th_col5">
+                                                {element.wanted * element.price} MAD
+                                            </td>
+                                        </tr>
+                                    </> : <></>)
                         }
                     </tbody>
                     <tfoot>
                         {
-                            props.panier.length === 0 ?
+                            props.panier.length <= 1 ?
                                 <>
                                 </>
                                 :
@@ -60,7 +73,8 @@ export const Panier = (props) => {
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td className="py-3 ">
+                                        <td className="py-3 d-flex flex-column align-items-center ">
+                                            <h6 className="fw-bold pb-1">Total:  {total} MAD</h6>
                                             <button className="btn btn-dark rounded-pill px-3 py-0 w-75">PROCEED TO PAYEMENT</button>
                                         </td>
                                     </tr>

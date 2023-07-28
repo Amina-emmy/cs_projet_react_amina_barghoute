@@ -1,4 +1,5 @@
 import "./_HomeTabtags.scss";
+import { NavLink } from "react-router-dom";
 
 export const HomeTabtags = (props) => {
 
@@ -34,12 +35,14 @@ export const HomeTabtags = (props) => {
                             {props.products.map((element) =>
                                 element.tag === "best seller" ?
                                     <>
-                                        <div className="picProduct">
-                                            <img src={element.src} alt="" width="200px" />
-                                            <h4>{element.name}</h4>
-                                            <p>{element.price} MAD</p>
-                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                        </div>
+                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                            <div className="picProduct">
+                                                <img src={element.src} alt="" width="200px" />
+                                                <h4>{element.name}</h4>
+                                                <p>{element.price} MAD</p>
+                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                            </div>
+                                        </NavLink>
                                     </> : <></>)}
                         </div>
                     </div>
@@ -48,12 +51,14 @@ export const HomeTabtags = (props) => {
                             {props.products.map((element) =>
                                 element.tag === "new" ?
                                     <>
-                                        <div className="picProduct">
-                                            <img src={element.src} alt="" width="200px" />
-                                            <h4>{element.name}</h4>
-                                            <p>{element.price} MAD</p>
-                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                        </div>
+                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                            <div className="picProduct">
+                                                <img src={element.src} alt="" width="200px" />
+                                                <h4>{element.name}</h4>
+                                                <p>{element.price} MAD</p>
+                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                            </div>
+                                        </NavLink>
                                     </> : <></>)}
                         </div>
                     </div>
@@ -62,12 +67,14 @@ export const HomeTabtags = (props) => {
                             {props.products.map((element) =>
                                 element.tag === "sale" ?
                                     <>
-                                        <div className="picProduct">
-                                            <img src={element.src} alt="" width="200px" />
-                                            <h4>{element.name}</h4>
-                                            <p>{element.price} MAD</p>
-                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                        </div>
+                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                            <div className="picProduct">
+                                                <img src={element.src} alt="" width="200px" />
+                                                <h4>{element.name}</h4>
+                                                <p>{element.price} MAD</p>
+                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                            </div>
+                                        </NavLink>
                                     </> : <></>)}
                         </div>
                     </div>
@@ -76,12 +83,14 @@ export const HomeTabtags = (props) => {
                             {props.products.map((element) =>
                                 element.tag === "old" ?
                                     <>
-                                        <div className="picProduct">
-                                            <img src={element.src} alt="" width="200px" />
-                                            <h4>{element.name}</h4>
-                                            <p>{element.price} MAD</p>
-                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                        </div>
+                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                            <div className="picProduct">
+                                                <img src={element.src} alt="" width="200px" />
+                                                <h4>{element.name}</h4>
+                                                <p>{element.price} MAD</p>
+                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                            </div>
+                                        </NavLink>
                                     </> : <></>)}
                         </div>
                     </div>

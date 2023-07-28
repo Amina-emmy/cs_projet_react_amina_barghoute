@@ -23,11 +23,12 @@ import k1 from "./assets/images/products/kids/kid1.jpg";
 import k2 from "./assets/images/products/kids/kid2.jpg";
 import k3 from "./assets/images/products/kids/kid3.jpg";
 import k4 from "./assets/images/products/kids/kid4.jpg";
+import { Product_details } from "./pages/Product_details/Product_details";
 // Accessories => products images
 
 export const App = () => {
   //* for shopping
-  const product =(src, name, price, wanted, category, tag) =>({
+  const product = (src, name, price, wanted, category, tag) => ({
     src,
     name,
     price,
@@ -35,7 +36,7 @@ export const App = () => {
     category,
     tag
   });
-  const [products,setProducts]=useState([
+  const [products, setProducts] = useState([
     product(wm1, "T-shirt purple", 120, 1, "women", "new"),
     product(wm2, "brown pants", 150, 1, "women", "sale"),
     product(wm3, "Chemise blue", 220, 1, "women", "best seller"),
@@ -46,28 +47,60 @@ export const App = () => {
     product(m3, "jacket brown", 200, 1, "men", "best seller"),
     product(m4, "jacket cool", 70, 1, "men", "best seller"),
 
-    product(k1,"skirt&coat pink", 120, 1, "kids", "new"),
+    product(k1, "skirt&coat pink", 120, 1, "kids", "new"),
     product(k2, "skirt&coat green", 50, 1, "kids", "sale"),
     product(k3, "outfit brown", 200, 1, "kids", "best seller"),
     product(k4, "outfit green", 70, 1, "kids", "old")
   ]);
 
-  const [panier,setPanier]=useState([]);
+  const [panier, setPanier] = useState(["p"]);
+  const [fav, setFav] = useState(["f"]);
 
-  const [fav,setFav]=useState([]);
+  //^ ajouter au panier ou au fav (favorite products)
+  const addToPanierOrFav = (tableau, setTableau, index) => {
+    if (tableau[0] === panier[0]) {
+      if (!tableau.includes(products[index])) {
+        setTableau([...tableau, products[index]]);
+      } else {
+        plusOne(products, setProducts, index);
+      }
+    } else if (tableau[0] === fav[0]) {
+      if (!tableau.includes(products[index])) {
+        setTableau([...tableau, products[index]]);
+      } else {
+        plusOne(products, setProducts, index);
+      }
+    } 
+  }
+
+  //^ + how much you want of a product
+  const plusOne = (tab, setTab, index) => {
+    let newtab = [...tab];
+    newtab[index].wanted += 1;
+    setTab(newtab);
+  }
+  //^ - how much you want of a product
+  const moinsOne = (tab, setTab, index) => {
+    let newtab = [...tab];
+    if (newtab[index].wanted > 1) {
+      newtab[index].wanted -= 1;
+      setTab(newtab);
+    }
+  }
 
   return (
     <>
-      <Header />
+      <Header panier={panier}/>
       <Routes>
         <Route path="*" element={<Error />} />
-        <Route path="/" element={<Home  products={products} setProducts={setProducts} />} />
-        <Route path="/product" element={<Product products={products} setProducts={setProducts}/>} />
+        <Route path="/" element={<Home products={products} setProducts={setProducts} />} />
+        <Route path="/product" element={<Product products={products} setProducts={setProducts} fav={fav} setFav={setFav} panier={panier} setPanier={setPanier} addToPanierOrFav={addToPanierOrFav} />} />
+        <Route path="/product/:id" element={<Product_details  products={products} />}/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/heart" element={<Heart fav={fav} setFav={setFav} />} />
-        <Route path="/panier" element={<Panier panier={panier} setPanier={setPanier} />} />
+        <Route path="/heart" element={<Heart fav={fav} setFav={setFav}  products={products}  panier={panier} setPanier={setPanier} addToPanierOrFav={addToPanierOrFav} plusOne={plusOne} moinsOne={moinsOne} />} />
+        <Route path="/panier" element={<Panier panier={panier} setPanier={setPanier} plusOne={plusOne} moinsOne={moinsOne} />} />
       </Routes>
     </>
   );

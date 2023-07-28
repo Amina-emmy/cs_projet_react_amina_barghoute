@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
 export const Product = (props) => {
+
     //* for showing products based on category
     const [all, setAll] = useState(false);
     const [women, setWomen] = useState(false);
@@ -74,79 +76,91 @@ export const Product = (props) => {
 
                 <div className="d-flex flex-wrap gap-2 divallProducts">
                     {
-                        (all === true && search ==="") || (all === false && women === false && kids === false && men === false && search ==="") ?
+                        (all === true && search === "") || (all === false && women === false && kids === false && men === false && search === "") ?
                             <>
-                                {props.products.map((element) => <>
-                                    <div className="picProduct">
-                                        <img src={element.src} alt="" width="200px" />
-                                        <h4>{element.name}</h4>
-                                        <p>{element.price} MAD</p>
-                                        <button className="btnCart btn btn-dark rounded-pill px-3">ADD TO CART</button>
-                                        <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                        <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
-                                    </div>
+                                {props.products.map((element, index) => <>
+                                    <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                        <div className="picProduct">
+                                            <img src={element.src} alt="" width="200px" />
+                                            <h4>{element.name}</h4>
+                                            <p>{element.price} MAD</p>
+                                            <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>
+                                                ADD TO CART</button>
+                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                            <button className="btnFav btn border-0" onClick={(event) => { props.addToPanierOrFav(props.fav, props.setFav, index); alert(`Product "${element.name}" is added to your Favorite list`); event.target.classList.add("text-orange"); }}>
+                                                <FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
+                                        </div>
+                                    </NavLink>
                                 </>)}
                             </>
-                            : women === true && search ==="" ?
+                            : women === true && search === "" ?
                                 <>
-                                    {props.products.map((element) =>
+                                    {props.products.map((element, index) =>
                                         element.category === "women" ?
                                             <>
-                                                <div className="picProduct">
-                                                    <img src={element.src} alt="" width="200px" />
-                                                    <h4>{element.name}</h4>
-                                                    <p>{element.price} MAD</p>
-                                                    <button className="btnCart btn btn-dark rounded-pill px-3">ADD TO CART</button>
-                                                    <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                                    <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
-                                                </div>
-                                            </> : <></>)}
-                                </>
-                                : men === true && search ==="" ?
-                                    <>
-                                        {props.products.map((element) =>
-                                            element.category === "men" ?
-                                                <>
+                                                <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                     <div className="picProduct">
                                                         <img src={element.src} alt="" width="200px" />
                                                         <h4>{element.name}</h4>
                                                         <p>{element.price} MAD</p>
-                                                        <button className="btnCart btn btn-dark rounded-pill px-3">ADD TO CART</button>
+                                                        <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
                                                         <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
                                                         <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                                     </div>
-                                                </> : <></>)}
-                                    </>
-                                    : kids === true && search ==="" ?
-                                        <>
-                                            {props.products.map((element) =>
-                                                element.category === "kids" ?
-                                                    <>
+                                                </NavLink>
+                                            </> : <></>)}
+                                </>
+                                : men === true && search === "" ?
+                                    <>
+                                        {props.products.map((element, index) =>
+                                            element.category === "men" ?
+                                                <>
+                                                    <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                         <div className="picProduct">
                                                             <img src={element.src} alt="" width="200px" />
                                                             <h4>{element.name}</h4>
                                                             <p>{element.price} MAD</p>
-                                                            <button className="btnCart btn btn-dark rounded-pill px-3">ADD TO CART</button>
+                                                            <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
                                                             <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
                                                             <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                                         </div>
+                                                    </NavLink>
+                                                </> : <></>)}
+                                    </>
+                                    : kids === true && search === "" ?
+                                        <>
+                                            {props.products.map((element, index) =>
+                                                element.category === "kids" ?
+                                                    <>
+                                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                                            <div className="picProduct">
+                                                                <img src={element.src} alt="" width="200px" />
+                                                                <h4>{element.name}</h4>
+                                                                <p>{element.price} MAD</p>
+                                                                <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
+                                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                                                <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
+                                                            </div>
+                                                        </NavLink>
                                                     </> : <></>)}
                                         </>
                                         :
                                         <>
                                         </>
                     }
-                    <div className="d-flex flex-wrap gap-2 w-50">
-                        {filterElement.map((element) =>
+                    <div className="d-flex flex-wrap gap-2">
+                        {filterElement.map((element, index) =>
                             <>
-                                <div className="picProduct">
-                                    <img src={element.src} alt="" width="200px" />
-                                    <h4>{element.name}</h4>
-                                    <p>{element.price} MAD</p>
-                                    <button className="btnCart btn btn-dark rounded-pill px-3">ADD TO CART</button>
-                                    <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                    <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
-                                </div>
+                                <NavLink className="nav-link" to={`/product/${element.name}`}>
+                                    <div className="picProduct">
+                                        <img src={element.src} alt="" width="200px" />
+                                        <h4>{element.name}</h4>
+                                        <p>{element.price} MAD</p>
+                                        <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
+                                        <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                        <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
+                                    </div>
+                                </NavLink>
                             </>)}
                     </div>
                 </div>
