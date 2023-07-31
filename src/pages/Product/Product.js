@@ -79,10 +79,11 @@ export const Product = (props) => {
                         (all === true && search === "") || (all === false && women === false && kids === false && men === false && search === "") ?
                             <>
                                 {props.products.map((element, index) => <>
-                                    <NavLink className="nav-link" to={`/product/${element.name}`}>
                                         <div className="picProduct">
+                                    <NavLink className="nav-link" to={`/product/${element.name}`}>
                                             <img src={element.src} alt="" width="200px" />
                                             <h4>{element.name}</h4>
+                                    </NavLink>
                                             <p>{element.price} MAD</p>
                                             <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>
                                                 ADD TO CART</button>
@@ -90,7 +91,6 @@ export const Product = (props) => {
                                             <button className="btnFav btn border-0" onClick={(event) => { props.addToPanierOrFav(props.fav, props.setFav, index); alert(`Product "${element.name}" is added to your Favorite list`); event.target.classList.add("text-orange"); }}>
                                                 <FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                         </div>
-                                    </NavLink>
                                 </>)}
                             </>
                             : women === true && search === "" ?
@@ -98,16 +98,16 @@ export const Product = (props) => {
                                     {props.products.map((element, index) =>
                                         element.category === "women" ?
                                             <>
-                                                <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                     <div className="picProduct">
+                                                <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                         <img src={element.src} alt="" width="200px" />
                                                         <h4>{element.name}</h4>
+                                                </NavLink>
                                                         <p>{element.price} MAD</p>
                                                         <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
                                                         <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
                                                         <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                                     </div>
-                                                </NavLink>
                                             </> : <></>)}
                                 </>
                                 : men === true && search === "" ?
@@ -115,16 +115,16 @@ export const Product = (props) => {
                                         {props.products.map((element, index) =>
                                             element.category === "men" ?
                                                 <>
-                                                    <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                         <div className="picProduct">
+                                                    <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                             <img src={element.src} alt="" width="200px" />
                                                             <h4>{element.name}</h4>
+                                                    </NavLink>
                                                             <p>{element.price} MAD</p>
                                                             <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
                                                             <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
                                                             <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                                         </div>
-                                                    </NavLink>
                                                 </> : <></>)}
                                     </>
                                     : kids === true && search === "" ?
@@ -132,16 +132,16 @@ export const Product = (props) => {
                                             {props.products.map((element, index) =>
                                                 element.category === "kids" ?
                                                     <>
-                                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                             <div className="picProduct">
+                                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                                 <img src={element.src} alt="" width="200px" />
                                                                 <h4>{element.name}</h4>
+                                                        </NavLink>
                                                                 <p>{element.price} MAD</p>
                                                                 <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
                                                                 <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
                                                                 <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                                             </div>
-                                                        </NavLink>
                                                     </> : <></>)}
                                         </>
                                         :
@@ -151,16 +151,16 @@ export const Product = (props) => {
                     <div className="d-flex flex-wrap gap-2">
                         {filterElement.map((element, index) =>
                             <>
-                                <NavLink className="nav-link" to={`/product/${element.name}`}>
                                     <div className="picProduct">
+                                <NavLink className="nav-link" to={`/product/${element.name}`}>
                                         <img src={element.src} alt="" width="200px" />
                                         <h4>{element.name}</h4>
+                                </NavLink>
                                         <p>{element.price} MAD</p>
                                         <button className="btnCart btn btn-dark rounded-pill px-3" onClick={() => { props.addToPanierOrFav(props.panier, props.setPanier, index); alert(`Product "${element.name}" is added to your Cart`); }}>ADD TO CART</button>
                                         <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
                                         <button className="btnFav btn border-0"><FontAwesomeIcon icon={faHeart} className="fs-5" /></button>
                                     </div>
-                                </NavLink>
                             </>)}
                     </div>
                 </div>

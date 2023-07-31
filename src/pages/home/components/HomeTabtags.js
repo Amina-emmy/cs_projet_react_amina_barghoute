@@ -35,14 +35,14 @@ export const HomeTabtags = (props) => {
                             {props.products.map((element) =>
                                 element.tag === "best seller" ?
                                     <>
-                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
-                                            <div className="picProduct">
+                                        <div className="picProduct">
+                                            <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                 <img src={element.src} alt="" width="200px" />
                                                 <h4>{element.name}</h4>
-                                                <p>{element.price} MAD</p>
-                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                            </div>
-                                        </NavLink>
+                                            </NavLink>
+                                            <p>{element.price} MAD</p>
+                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                        </div>
                                     </> : <></>)}
                         </div>
                     </div>
@@ -51,14 +51,14 @@ export const HomeTabtags = (props) => {
                             {props.products.map((element) =>
                                 element.tag === "new" ?
                                     <>
-                                        <NavLink className="nav-link" to={`/product/${element.name}`}>
-                                            <div className="picProduct">
+                                        <div className="picProduct">
+                                            <NavLink className="nav-link" to={`/product/${element.name}`}>
                                                 <img src={element.src} alt="" width="200px" />
                                                 <h4>{element.name}</h4>
-                                                <p>{element.price} MAD</p>
-                                                <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
-                                            </div>
-                                        </NavLink>
+                                            </NavLink>
+                                            <p>{element.price} MAD</p>
+                                            <button className="btnSale btn btn-orange text-light rounded-pill">{element.tag}</button>
+                                        </div>
                                     </> : <></>)}
                         </div>
                     </div>
